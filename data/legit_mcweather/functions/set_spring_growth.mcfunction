@@ -1,0 +1,1 @@
+data modify storage legit_mcweather:weather weather set value 5

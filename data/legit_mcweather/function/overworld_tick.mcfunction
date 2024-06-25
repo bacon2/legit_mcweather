@@ -1,4 +1,4 @@
-execute if data storage legit_mcweather:weather {weather:1} at @s run execute at @a run particle minecraft:falling_dust minecraft:snow ~ ~ ~ 10 10 10 2 100 force
+execute if data storage legit_mcweather:weather {weather:1} at @s run execute at @a run particle minecraft:falling_dust{block_state:snow} ~ ~ ~ 10 10 10 2 100 force
 execute if data storage legit_mcweather:weather {weather:1} at @s run summon minecraft:falling_block ~10 ~50 ~10 {NoGravity:0b, BlockState:{Name:"minecraft:snow"}, Time:1s, Tags:["legit_snow"]}
 execute if data storage legit_mcweather:weather {weather:1} at @s run spreadplayers ~ ~ 1 200 false @e[tag=legit_snow]
 execute if data storage legit_mcweather:weather {weather:1} run kill @e[type=item, nbt={Item:{id:"minecraft:snow"}}]
@@ -10,7 +10,7 @@ execute if data storage legit_mcweather:weather {weather:1} at @s run gamerule r
 execute if data storage legit_mcweather:weather {weather:1} run weather clear
 execute if data storage legit_mcweather:weather {weather:2} at @s unless entity @e[tag=legit_tornado] run summon vex ~-20 80 ~10 {Tags:["legit_tornado"]}
 execute if data storage legit_mcweather:weather {weather:2} at @e[tag=legit_tornado] run particle minecraft:sweep_attack ~ ~5 ~ 5 5 5 1 10 force
-execute if data storage legit_mcweather:weather {weather:2} at @e[tag=legit_tornado] run particle minecraft:dust 0.5 0.5 0.5 5.0 ~ ~10 ~ 2 10 2 1 100 force
+execute if data storage legit_mcweather:weather {weather:2} at @e[tag=legit_tornado] run particle minecraft:dust{scale:4.0, color:[0.5,0.5,0.5]} ~ ~10 ~ 2 10 2 1 100 force
 execute if data storage legit_mcweather:weather {weather:2} as @e[tag=!legit_tornado, type=!#legit_mcweather:inanimate] at @s if entity @e[tag=legit_tornado, distance=..20] run tp @s ^ ^3 ^
 execute if data storage legit_mcweather:weather {weather:2} at @s run gamerule randomTickSpeed 3
 execute if data storage legit_mcweather:weather {weather:2} at @s run weather rain
@@ -26,7 +26,7 @@ execute if data storage legit_mcweather:weather {weather:4} run weather clear
 execute if data storage legit_mcweather:weather {weather:4} at @s run summon minecraft:armor_stand ~10 ~50 ~10 {Tags:["legit_heat"]}
 execute if data storage legit_mcweather:weather {weather:4} at @s run spreadplayers ~ ~ 1 200 under 68 false @e[tag=legit_heat]
 execute if data storage legit_mcweather:weather {weather:4} at @e[tag=legit_heat] run fill ~-2 ~-1 ~-2 ~2 ~-1 ~2 minecraft:dirt replace minecraft:grass_block
-execute if data storage legit_mcweather:weather {weather:4} at @e[tag=legit_heat] run fill ~ ~-1 ~ ~ ~ ~ fire replace minecraft:grass
+execute if data storage legit_mcweather:weather {weather:4} at @e[tag=legit_heat] run fill ~ ~-1 ~ ~ ~ ~ fire replace minecraft:short_grass
 execute if data storage legit_mcweather:weather {weather:4} at @e[tag=legit_heat] run fill ~-2 ~-2 ~-2 ~2 ~2 ~2 structure_void replace #legit_mcweather:sponges
 execute if data storage legit_mcweather:weather {weather:4} at @e[tag=legit_heat] run fill ~-2 ~-2 ~-2 ~2 ~2 ~2 sponge replace minecraft:air
 execute if data storage legit_mcweather:weather {weather:4} at @e[tag=legit_heat] run fill ~-2 ~-2 ~-2 ~2 ~2 ~2 air replace #legit_mcweather:sponges
